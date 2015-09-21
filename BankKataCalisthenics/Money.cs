@@ -1,3 +1,5 @@
+using System;
+
 namespace BankKataCalisthenics
 {
     public class Money
@@ -9,9 +11,9 @@ namespace BankKataCalisthenics
             _amount = amount;
         }
 
-        public decimal Amount
+        public decimal Amount()
         {
-            get { return _amount; }
+            return _amount;
         }
 
         protected bool Equals(Money other)
@@ -23,13 +25,18 @@ namespace BankKataCalisthenics
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((Money) obj);
         }
 
         public override int GetHashCode()
         {
             return _amount.GetHashCode();
+        }
+
+        public string FormattedAmount(IFormatProvider formatProvider)
+        {
+            return _amount.ToString("N2", formatProvider);
         }
     }
 }

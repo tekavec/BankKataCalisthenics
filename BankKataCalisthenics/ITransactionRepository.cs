@@ -6,6 +6,7 @@ namespace BankKataCalisthenics
     {
         void AddTransaction(Transaction transaction);
         IReadOnlyCollection<Transaction> AllTransactions { get; }
-        int Count { get; }
+        int Count();
+        decimal CurrentBalance();
     }
 }

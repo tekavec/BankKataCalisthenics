@@ -11,9 +11,9 @@ namespace BankKataCalisthenics.Tests
         private readonly IClock _clock = Substitute.For<IClock>();
         private readonly ITransactionRepository _transactionRepository = Substitute.For<ITransactionRepository>();
         private static readonly DateTime DateA = new DateTime(2015, 9, 15);
-        private readonly Money _moneyA = new Money(1000m);
-        private readonly Money _moneyB = new Money(-1000m);
         private readonly IStatementPrinter _statementPrinter = Substitute.For<IStatementPrinter>();
+        private const decimal AmountA = 1000m;
+        private const decimal AmountB = -1000m;
 
         [TestInitialize]
         public void Init()
@@ -24,10 +24,10 @@ namespace BankKataCalisthenics.Tests
         [TestMethod]
         public void StoreADeposit()
         {
-            var transaction = new Transaction(_moneyA, DateA);
+            var transaction = new Transaction(AmountA, DateA);
             _clock.Today().Returns(DateA);
 
-            _account.Deposit(_moneyA);
+            _account.Deposit(AmountA);
 
             _transactionRepository.Received().AddTransaction(transaction);
         }
@@ -35,10 +35,10 @@ namespace BankKataCalisthenics.Tests
         [TestMethod]
         public void StoreAWithdrawal()
         {
-            var transaction = new Transaction(_moneyB, DateA);
+            var transaction = new Transaction(AmountB, DateA);
             _clock.Today().Returns(DateA);
 
-            _account.Withdraw(_moneyA);
+            _account.Withdraw(AmountA);
 
             _transactionRepository.Received().AddTransaction(transaction);
         }

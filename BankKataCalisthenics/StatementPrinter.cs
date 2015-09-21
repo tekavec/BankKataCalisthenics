@@ -6,9 +6,9 @@ namespace BankKataCalisthenics
 {
     public class StatementPrinter : IStatementPrinter
     {
-        private const string Header = "| Date | Amount | Balance";
+        private const string Header = " | Date | Amount | Balance";
         private readonly IBankConsole _console;
-        private readonly IFormatProvider _cultureInfo = new CultureInfo("en-GB", true);
+        private readonly IFormatProvider _formatProvider = new CultureInfo("en-GB", true);
 
         public StatementPrinter(IBankConsole console)
         {
@@ -23,13 +23,13 @@ namespace BankKataCalisthenics
 
         private void PrintStatementLines(ITransactionRepository transactionRepository)
         {
-            decimal balance = transactionRepository.AllTransactions.Sum(a => a.Money.Amount);
-            foreach (var transaction in transactionRepository.AllTransactions.OrderByDescending(a => a.Date))
+            decimal balance = transactionRepository.CurrentBalance();
+            foreach (var transaction in transactionRepository.AllTransactions.OrderByDescending(a => a.Date()))
             {
-                var statementLine = string.Format("| {0} | {1} | {2}", transaction.Date.ToString("d", _cultureInfo),
-                    transaction.Money.Amount.ToString("N2", _cultureInfo), balance.ToString("N2", _cultureInfo));
+                var statementLine = string.Format(" | {0} | {1} | {2}", transaction.FormattedDate(_formatProvider),
+                    transaction.FormattedAmount(_formatProvider), balance.ToString("N2", _formatProvider));
                 _console.WriteLine(statementLine);
-                balance -= transaction.Money.Amount;
+                balance -= transaction.Amount();
             }
         }
 

@@ -18,14 +18,15 @@ namespace BankKataCalisthenics
             _statementPrinter.PrintFormattedStatement(_transactionRepository);
         }
 
-        public void Deposit(Money money)
+        public void Deposit(decimal amount)
         {
-            _transactionRepository.AddTransaction(new Transaction(money, _clock.Today()));
+            _transactionRepository.AddTransaction(new Transaction(amount, _clock.Today()));
         }
 
-        public void Withdraw(Money money)
+        public void Withdraw(decimal amount)
         {
-            _transactionRepository.AddTransaction(new Transaction(new Money(-money.Amount), _clock.Today()));
+            _transactionRepository.AddTransaction(new Transaction(-amount, _clock.Today()));
         }
+
     }
 }

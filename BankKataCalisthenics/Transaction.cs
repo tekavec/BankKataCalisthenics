@@ -7,20 +7,30 @@ namespace BankKataCalisthenics
         private readonly Money _money;
         private readonly DateTime _date;
 
-        public Transaction(Money money, DateTime date)
+        public Transaction(decimal amount, DateTime date)
         {
-            _money = money;
+            _money = new Money(amount);
             _date = date;
         }
 
-        public Money Money
+        public string FormattedAmount(IFormatProvider formatProvider)
         {
-            get { return _money; }
+            return _money.FormattedAmount(formatProvider);
         }
 
-        public DateTime Date
+        public DateTime Date()
         {
-            get { return _date; }
+            return _date;
+        }
+
+        public string FormattedDate(IFormatProvider formatProvider)
+        {
+            return _date.ToString("d", formatProvider);
+        }
+
+        public decimal Amount()
+        {
+            return _money.Amount();
         }
 
         protected bool Equals(Transaction other)

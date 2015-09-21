@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BankKataCalisthenics
 {
@@ -16,10 +17,14 @@ namespace BankKataCalisthenics
             get { return _transactions as IReadOnlyCollection<Transaction>; }
         }
 
-        int ITransactionRepository.Count
+        public int Count()
         {
-            get { return _transactions.Count; }
+            return _transactions.Count;
         }
 
+        public decimal CurrentBalance()
+        {
+            return _transactions.Sum(a => a.Amount());
+        }
     }
 }

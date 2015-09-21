@@ -31,21 +31,21 @@ namespace BankKataCalisthenics.AcceptanceTests
         public void GivenAClientMakesADepositOfOn(decimal amount, string date)
         {
             _clock.Today().Returns(ConvertStringToDateTime(date));
-            _account.Deposit(new Money(amount));
+            _account.Deposit(amount);
         }
 
         [Given(@"a deposit of (.*) on '(.*)'")]
         public void GivenADepositOfOn(decimal amount, string date)
         {
             _clock.Today().Returns(ConvertStringToDateTime(date));
-            _account.Deposit(new Money(amount));
+            _account.Deposit(amount);
         }
         
         [Given(@"a withdrawal of (.*) on '(.*)'")]
         public void GivenAWithdrawalOfOn(decimal amount, string date)
         {
             _clock.Today().Returns(ConvertStringToDateTime(date));
-            _account.Withdraw(new Money(amount));
+            _account.Withdraw(amount);
         }
         
         [When(@"she prints her bank statement")]
@@ -60,13 +60,13 @@ namespace BankKataCalisthenics.AcceptanceTests
             var header = new StringBuilder();
             foreach (var headerItem in table.Header)
             {
-                header.Append("| ").AppendLine(headerItem);
+                header.Append(" | ").Append(headerItem);
             }
             _console.Received().WriteLine(header.ToString());
             var expectedStatementLines = table.CreateSet<StatementLine>();
             foreach (var expectedStatementLine in expectedStatementLines)
             {
-                var statementLine = string.Format("| {0} | {1} | {2}", expectedStatementLine.Date, expectedStatementLine.Amount, expectedStatementLine.Balance);
+                var statementLine = string.Format(" | {0} | {1} | {2}", expectedStatementLine.Date, expectedStatementLine.Amount, expectedStatementLine.Balance);
                 _console.Received().WriteLine(statementLine);
             }
         }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="Clock.cs" />
     <Compile Include="IBankConsole.cs" />
     <Compile Include="IClock.cs" />
     <Compile Include="IStatementPrinter.cs" />

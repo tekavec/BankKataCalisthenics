@@ -55,9 +55,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AccountShould.cs" />
+    <Compile Include="MoneyShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatementPrinterShould.cs" />
     <Compile Include="TransactionRepositoryShould.cs" />
+    <Compile Include="TransactionShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BankKataCalisthenics\BankKataCalisthenics.csproj">

@@ -26,5 +26,7 @@ namespace BankKataCalisthenics.Tests
             Assert.IsTrue(_transactionRepository.AllTransactions.Contains(_transactionA));
             Assert.IsFalse(_transactionRepository.AllTransactions.Contains(_transactionB));
         }
+
+
     }
 }

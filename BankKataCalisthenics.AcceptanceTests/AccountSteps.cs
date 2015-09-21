@@ -15,12 +15,15 @@ namespace BankKataCalisthenics.AcceptanceTests
         private Account _account;
         private readonly IClock _clock = Substitute.For<IClock>();
         private readonly IFormatProvider _cultureInfo = new CultureInfo("en-GB", true);
-        private readonly ITransactionRepository _transactionRepository = Substitute.For<ITransactionRepository>();
+        private ITransactionRepository _transactionRepository;
+        private IStatementPrinter _statementPrinter;
 
         [Given(@"that account is created")]
         public void GivenThatAccountIsCreated()
         {
-            _account = new Account(_clock, _transactionRepository);
+            _statementPrinter = new StatementPrinter(_console);
+            _transactionRepository = new TransactionRepository();
+            _account = new Account(_clock, _transactionRepository, _statementPrinter);
             _account.PrintStatement();
         }
         

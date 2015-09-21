@@ -13,11 +13,12 @@ namespace BankKataCalisthenics.Tests
         private static readonly DateTime DateA = new DateTime(2015, 9, 15);
         private readonly Money _moneyA = new Money(1000m);
         private readonly Money _moneyB = new Money(-1000m);
+        private readonly IStatementPrinter _statementPrinter = Substitute.For<IStatementPrinter>();
 
         [TestInitialize]
         public void Init()
         {
-            _account = new Account(_clock, _transactionRepository);
+            _account = new Account(_clock, _transactionRepository, _statementPrinter);
         }
 
         [TestMethod]
@@ -41,5 +42,14 @@ namespace BankKataCalisthenics.Tests
 
             _transactionRepository.Received().AddTransaction(transaction);
         }
+
+        [TestMethod]
+        public void PrintAStatement()
+        {
+            _account.PrintStatement();
+
+            _statementPrinter.Received().PrintFormattedStatement(_transactionRepository);
+        }
+
     }
 }

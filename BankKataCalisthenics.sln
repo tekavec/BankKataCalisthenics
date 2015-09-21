@@ -5,14 +5,14 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankKataCalisthenics", "BankKataCalisthenics\BankKataCalisthenics.csproj", "{A1D5258E-BA84-4122-8BBE-076FE850BCEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankKataCalisthenics.Tests", "BankKataCalisthenics.Tests\BankKataCalisthenics.Tests.csproj", "{26739AA4-7821-4AED-8FDA-F7F7211023A6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankKataCalisthenics.AcceptanceTests", "BankKataCalisthenics.AcceptanceTests\BankKataCalisthenics.AcceptanceTests.csproj", "{FE6EE83A-5F89-4D7F-8672-0A8B894FAE20}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7B4EE720-4A69-4527-9E34-82FE24F7339F}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankKataCalisthenics.Tests", "BankKataCalisthenics.Tests\BankKataCalisthenics.Tests.csproj", "{C563B4FE-958C-4BE5-9AAB-F2AABF3A986A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,14 +24,14 @@ Global
 		{A1D5258E-BA84-4122-8BBE-076FE850BCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1D5258E-BA84-4122-8BBE-076FE850BCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1D5258E-BA84-4122-8BBE-076FE850BCEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26739AA4-7821-4AED-8FDA-F7F7211023A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26739AA4-7821-4AED-8FDA-F7F7211023A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26739AA4-7821-4AED-8FDA-F7F7211023A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26739AA4-7821-4AED-8FDA-F7F7211023A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE6EE83A-5F89-4D7F-8672-0A8B894FAE20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FE6EE83A-5F89-4D7F-8672-0A8B894FAE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE6EE83A-5F89-4D7F-8672-0A8B894FAE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE6EE83A-5F89-4D7F-8672-0A8B894FAE20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C563B4FE-958C-4BE5-9AAB-F2AABF3A986A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C563B4FE-958C-4BE5-9AAB-F2AABF3A986A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C563B4FE-958C-4BE5-9AAB-F2AABF3A986A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C563B4FE-958C-4BE5-9AAB-F2AABF3A986A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

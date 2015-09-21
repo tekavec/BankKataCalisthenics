@@ -1,46 +1,83 @@
 ﻿using System;
+using System.Collections;
+using System.Globalization;
+using System.Text;
+using NSubstitute;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace BankKataCalisthenics.AcceptanceTests
 {
     [Binding]
     public class AccountSteps
     {
+        private readonly IBankConsole _console = Substitute.For<IBankConsole>();
+        private Account _account;
+        private readonly IClock _clock = Substitute.For<IClock>();
+        private readonly IFormatProvider _cultureInfo = new CultureInfo("en-GB", true);
+        private readonly ITransactionRepository _transactionRepository = Substitute.For<ITransactionRepository>();
 
         [Given(@"that account is created")]
         public void GivenThatAccountIsCreated()
         {
-            ScenarioContext.Current.Pending();
+            _account = new Account(_clock, _transactionRepository);
+            _account.PrintStatement();
         }
         
         [Given(@"a client makes a deposit of (.*) on '(.*)'")]
-        public void GivenAClientMakesADepositOfOn(int p0, string p1)
+        public void GivenAClientMakesADepositOfOn(decimal amount, string date)
         {
-            ScenarioContext.Current.Pending();
+            _clock.Today().Returns(ConvertStringToDateTime(date));
+            _account.Deposit(new Money(amount));
         }
-        
+
         [Given(@"a deposit of (.*) on '(.*)'")]
-        public void GivenADepositOfOn(int p0, string p1)
+        public void GivenADepositOfOn(decimal amount, string date)
         {
-            ScenarioContext.Current.Pending();
+            _clock.Today().Returns(ConvertStringToDateTime(date));
+            _account.Deposit(new Money(amount));
         }
         
         [Given(@"a withdrawal of (.*) on '(.*)'")]
-        public void GivenAWithdrawalOfOn(int p0, string p1)
+        public void GivenAWithdrawalOfOn(decimal amount, string date)
         {
-            ScenarioContext.Current.Pending();
+            _clock.Today().Returns(ConvertStringToDateTime(date));
+            _account.Withdraw(new Money(amount));
         }
         
         [When(@"she prints her bank statement")]
         public void WhenShePrintsHerBankStatement()
         {
-            ScenarioContext.Current.Pending();
+            _account.PrintStatement();
         }
         
         [Then(@"she would see")]
         public void ThenSheWouldSee(Table table)
         {
-            ScenarioContext.Current.Pending();
+            var header = new StringBuilder();
+            foreach (var headerItem in table.Header)
+            {
+                header.Append("| ").AppendLine(headerItem);
+            }
+            _console.Received().WriteLine(header.ToString());
+            var expectedStatementLines = table.CreateSet<StatementLine>();
+            foreach (var expectedStatementLine in expectedStatementLines)
+            {
+                var statementLine = string.Format("| {0} | {1} | {2}", expectedStatementLine.Date, expectedStatementLine.Amount, expectedStatementLine.Balance);
+                _console.Received().WriteLine(statementLine);
+            }
         }
+
+        private DateTime ConvertStringToDateTime(string date)
+        {
+            return Convert.ToDateTime(date, _cultureInfo);
+        }
+    }
+
+    public class StatementLine
+    {
+        public string Date { get; set; }
+        public string Amount { get; set; }
+        public string Balance { get; set; }
     }
 }

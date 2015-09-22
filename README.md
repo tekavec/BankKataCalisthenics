@@ -1,8 +1,8 @@
-Bank account kata with Calisthenics rules
+Bank Account Kata With Calisthenics Rules
 =================
 
-The original idea for the kata was created by Krzysztof Jelski at 'Session on the Software Craftsmanship UK 2011 conference' (How Object-Oriented Are You Feeling Today?). 
-This version is done by obbeying as much [calisthenics rules] ((http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf) as possible. 
+The original idea for the kata was created by Krzysztof Jelski at 'Session on the Software Craftsmanship UK 2011 conference' (*How Object-Oriented Are You Feeling Today?*). 
+This version is done by obbeying as much [calisthenics rules] (http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf) as possible. 
 
 Acceptance test is created with [SpecFlow] (http://www.specflow.org/), [NSubstitute] (http://nsubstitute.github.io/) was used for mocking, and MSTest for unit tests.
 

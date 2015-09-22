@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BankKataCalisthenics
+namespace BankKataCalisthenics.Transactions
 {
     public class TransactionRepository : ITransactionRepository
     {

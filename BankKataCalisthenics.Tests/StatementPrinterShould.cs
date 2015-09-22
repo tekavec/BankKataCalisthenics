@@ -1,4 +1,7 @@
 ﻿using System;
+using BankKataCalisthenics.Console;
+using BankKataCalisthenics.Printer;
+using BankKataCalisthenics.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 

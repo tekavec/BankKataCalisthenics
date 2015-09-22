@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Globalization;
+using BankKataCalisthenics.Printer;
+using BankKataCalisthenics.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BankKataCalisthenics.Tests

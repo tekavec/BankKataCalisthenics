@@ -1,6 +1,6 @@
 using System;
 
-namespace BankKataCalisthenics
+namespace BankKataCalisthenics.Clock
 {
     public interface IClock
     {

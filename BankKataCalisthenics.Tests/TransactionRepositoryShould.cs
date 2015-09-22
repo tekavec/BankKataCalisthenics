@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using BankKataCalisthenics.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BankKataCalisthenics.Tests

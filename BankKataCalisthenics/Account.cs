@@ -1,3 +1,7 @@
+using BankKataCalisthenics.Clock;
+using BankKataCalisthenics.Printer;
+using BankKataCalisthenics.Transactions;
+
 namespace BankKataCalisthenics
 {
     public class Account

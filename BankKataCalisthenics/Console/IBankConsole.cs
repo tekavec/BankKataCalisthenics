@@ -1,4 +1,4 @@
-﻿namespace BankKataCalisthenics
+﻿namespace BankKataCalisthenics.Console
 {
     public interface IBankConsole
     {

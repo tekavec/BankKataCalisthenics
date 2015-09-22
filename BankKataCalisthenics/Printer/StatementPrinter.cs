@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using BankKataCalisthenics.Console;
+using BankKataCalisthenics.Transactions;
 
-namespace BankKataCalisthenics
+namespace BankKataCalisthenics.Printer
 {
     public class StatementPrinter : IStatementPrinter
     {

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text;
+using BankKataCalisthenics.Transactions;
 
-namespace BankKataCalisthenics
+namespace BankKataCalisthenics.Printer
 {
     public class StatementLine
     {

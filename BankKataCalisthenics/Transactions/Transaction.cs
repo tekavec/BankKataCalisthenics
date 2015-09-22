@@ -1,6 +1,6 @@
 using System;
 
-namespace BankKataCalisthenics
+namespace BankKataCalisthenics.Transactions
 {
     public class Transaction
     {

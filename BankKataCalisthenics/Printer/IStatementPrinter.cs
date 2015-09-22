@@ -1,4 +1,6 @@
-﻿namespace BankKataCalisthenics
+﻿using BankKataCalisthenics.Transactions;
+
+namespace BankKataCalisthenics.Printer
 {
     public interface IStatementPrinter
     {

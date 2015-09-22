@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Globalization;
 using System.Text;
+using BankKataCalisthenics.Clock;
+using BankKataCalisthenics.Console;
+using BankKataCalisthenics.Printer;
+using BankKataCalisthenics.Transactions;
 using NSubstitute;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BankKataCalisthenics
+namespace BankKataCalisthenics.Transactions
 {
     public interface ITransactionRepository
     {

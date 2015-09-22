@@ -39,10 +39,14 @@ namespace BankKataCalisthenics.Tests
 
             _statementPrinter.PrintFormattedStatement(transactionRepository);
 
-            _console.Received().WriteLine(Header);
-            _console.Received().WriteLine(" | 10/10/2015 | 2,000.00 | 2,500.00");   
-            _console.Received().WriteLine(" | 10/09/2015 | 1,000.00 | 500.00");   
-            _console.Received().WriteLine(" | 10/08/2015 | -500.00 | -500.00");   
+            Received.InOrder(() =>
+                {
+                    _console.WriteLine(Header);
+                    _console.WriteLine(" | 10/10/2015 | 2,000.00 | 2,500.00");
+                    _console.WriteLine(" | 10/09/2015 | 1,000.00 | 500.00");
+                    _console.WriteLine(" | 10/08/2015 | -500.00 | -500.00");
+                }
+            );
         }
     }
 }

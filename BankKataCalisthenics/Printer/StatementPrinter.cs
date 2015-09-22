@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using BankKataCalisthenics.Console;
 using BankKataCalisthenics.Transactions;
 
@@ -26,7 +25,7 @@ namespace BankKataCalisthenics.Printer
         private void PrintStatementLines(ITransactionRepository transactionRepository)
         {
             decimal balance = transactionRepository.CurrentBalance();
-            foreach (var transaction in transactionRepository.AllTransactions.OrderByDescending(a => a.Date()))
+            foreach (var transaction in transactionRepository.AllTransactionsInReverseChronologicalOrder())
             {
                 var statementLine = new StatementLine(transaction, balance);
                 _console.WriteLine(statementLine.CreateWith(_formatProvider));

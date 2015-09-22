@@ -12,9 +12,14 @@ namespace BankKataCalisthenics.Transactions
             _transactions.Add(transaction);
         }
 
-        public IReadOnlyCollection<Transaction> AllTransactions
+        public IReadOnlyCollection<Transaction> AllTransactions()
         {
-            get { return _transactions as IReadOnlyCollection<Transaction>; }
+            return _transactions as IReadOnlyCollection<Transaction>;
+        }
+
+        public IReadOnlyCollection<Transaction> AllTransactionsInReverseChronologicalOrder()
+        {
+            return _transactions.OrderByDescending(a => a.Date()).ToList();
         }
 
         public int Count()

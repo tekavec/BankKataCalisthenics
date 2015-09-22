@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BankKataCalisthenics.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -24,8 +25,20 @@ namespace BankKataCalisthenics.Tests
             _transactionRepository.AddTransaction(_transactionA);
 
             Assert.AreEqual(1, _transactionRepository.Count());
-            Assert.IsTrue(_transactionRepository.AllTransactions.Contains(_transactionA));
-            Assert.IsFalse(_transactionRepository.AllTransactions.Contains(_transactionB));
+            Assert.IsTrue(_transactionRepository.AllTransactions().Contains(_transactionA));
+            Assert.IsFalse(_transactionRepository.AllTransactions().Contains(_transactionB));
+        }
+
+        [TestMethod]
+        public void ReturnAllTransactionsInReverseChronologicalOrder()
+        {
+            _transactionRepository.AddTransaction(_transactionB);
+            _transactionRepository.AddTransaction(_transactionA);
+
+            IReadOnlyCollection<Transaction> transactions = _transactionRepository.AllTransactionsInReverseChronologicalOrder();
+
+            Assert.AreEqual(transactions.ElementAt(0), _transactionA);
+            Assert.AreEqual(transactions.ElementAt(1), _transactionB);
         }
 
         [TestMethod]

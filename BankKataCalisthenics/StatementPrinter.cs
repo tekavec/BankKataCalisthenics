@@ -26,9 +26,8 @@ namespace BankKataCalisthenics
             decimal balance = transactionRepository.CurrentBalance();
             foreach (var transaction in transactionRepository.AllTransactions.OrderByDescending(a => a.Date()))
             {
-                var statementLine = string.Format(" | {0} | {1} | {2}", transaction.FormattedDate(_formatProvider),
-                    transaction.FormattedAmount(_formatProvider), balance.ToString("N2", _formatProvider));
-                _console.WriteLine(statementLine);
+                var statementLine = new StatementLine(transaction, balance);
+                _console.WriteLine(statementLine.CreateWith(_formatProvider));
                 balance -= transaction.Amount();
             }
         }
